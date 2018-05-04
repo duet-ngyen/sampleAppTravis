@@ -1,9 +1,18 @@
 language: ruby
 services:
-  - mysql
+- mysql
 install:
-  - bundle install
+- bundle install
 before_script:
-  - bundle exec rake db:create
-  - bundle exec rake db:migrate
+- bundle exec rake db:create
+- bundle exec rake db:migrate
 script: bundle exec rspec spec/models
+deploy:
+  provider: heroku
+  api_key:
+    secure: 8gLzQvcWU2BZQaYRR4YyKxeiRbwR72ULhQ/HdTExeOtrBYvkMg9SO8v8XGfOB4wIypkODeu199pendSuH9IIeEse9VXDHZI93AApbJLf6ofSRIkt0v2wQkH4s4TicbSt+TZCe7bWQQJpb8BSrFxZvvJSOSqy4o174l806mPjCcMjNdtQATlSrWFFhODwupoXwH7UEshUSnL6ZvSlVBFte9wvilGZL5MG+VcG+rte7vIeNZih4yQ1Vj203YC6Kt8N4RYfG0iVeR4lnf5yo+pkrmhxnpE6+JFMPzBuqhXaNnFT9mhMLK414DmoNkDkFspWhkmIb4SQS44jv9n9c4iR1MT1NzfL8IAi7iykuGscfhNfr0PWjaMhS3I4ilsgGanItqlAsT1A3YRg4zcti4XQx1UghqmBpct2/tIDUBzj8MXLlH3PmD0hhmEJ7Ltzr1SE5iyFBES1oeRPQsAEikjKieSIUVYnTuzIiZi7pUFZ5p50IcxAb/IK3WRdfHCCqvrq6Snev9mFZUxybUm+0ZkBy0RSD8/tADOX2dDhCS8gEWgtTVmg20Eoy+FxZRHFeAvA9hElJhBq88p8Et19YShShjhPZLnEZVY1gXNYoa+0wX5K1wnRBVv7RogaZBsVZ7ut8VUt6N2CRNlK/UPXaincssOReFpA5Iwpg3RuuwBlXy4=
+  run: "rake db:migrate"
+  app: secure-brushlands-51899
+  on:
+    repo: duet-ngyen/sampleAppTravis
+    all_branches: true
