@@ -5,11 +5,12 @@ install:
 - bundle install
 deploy:
   provider: heroku
-  api_key: 68b21f42-1990-4f0a-bfa0-8584265c9a56
+  api_key:
+    secure: u9Xq/TXm6RKu7wu3iRGx5D7NTmqSWT0o8xI6gIBmWcD2vA/x5lf18pOuo5LSOzBJdBWSw0OUqB4+YfAet0egkoYogVlwvwAzdrt/r95E2zJOsS1zeAVoDXGL0RmwCyH2g86BK/VuO4foOBhkAQLXU5nNi3hZqdFFrR/IMF9snjLW8pZPveww+X+LqxT9H5JQ0urW61zcQyTy1sF5O+kkcgxmZgrfTCsdQvbXwlt+6a5JgbUSywEcS36NJAB5fiszD1zqnbRAtk6I1sBcliGinP1n1G46MimvDyFqVvBoNk8jTTBLBLuTumQoLOgD+RvX1MufWpwLkrtoisZ4EJjX94nMrSJ4oaHOUDou47Uwj6SHGsfxQAzEX75VCNy+dnL8z00BgIAZkUj7h8z/B+Pmin6a5ZmmPJmdd+AIHL1vaKiqm1YsPzpqx2ro7gmVIl1pWVKv/IdAdwG5/KhBrg5pog5ZMK5jJ9XLIiOPP4VPYqVIwJT91wjlbadPUAswjLXbPe3gXDROmuO51X8TuxEzYUvBH7UpvUH0YwZ29LTD7ja9rAnykLq9hWC2ywSnkjkiizk35dR4PgQHopxspzOsJbzu1cTCQMuMO5mYySp7RzsC8w+Fjxrq7TAPUVn3REZpH45EWXQGHHc817LwDQY7aQIYpSVDaS7ory1qUeGMOjk=
   app: secure-brushlands-51899
   on:
     repo: duet-ngyen/sampleAppTravis
-    branch: autoDeployHeroku
+    all_branches: true
 before_script:
 - bundle exec rake db:create
 - bundle exec rake db:migrate
