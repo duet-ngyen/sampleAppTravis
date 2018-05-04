@@ -27,8 +27,8 @@ test:
   reconnect: false
   database: sampleApp_test
   pool: 5
-  username: dev
-  password: devpass
+  username: travis
+  # password:
   # socket: /tmp/mysql.sock
 
 production:
