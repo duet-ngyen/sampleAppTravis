@@ -5,9 +5,6 @@ gem 'rails', '3.2.11'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'mysql2', '~> 0.3.11'
-
-
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -36,6 +33,7 @@ gem 'jquery-rails'
 
 # To use debugger
 # gem 'debugger'
+  gem 'mysql2', '~> 0.3.11'
 group :test, :development do
   gem 'pry'
   gem 'test-unit'
@@ -45,4 +43,9 @@ group :test, :development do
   # gem 'guard-rspec'
   # gem 'launchy'
   gem 'factory_bot'
+end
+
+group :production do
+  gem 'pg', '~> 0.11'
+  gem 'rails_12factor'
 end
