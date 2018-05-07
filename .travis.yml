@@ -6,6 +6,9 @@ install:
 deploy:
   provider: heroku
   api_key: 68b21f42-1990-4f0a-bfa0-8584265c9a56
+  run:
+    - "rake db:create"
+    - "rake db:migrate"
   app:
     master: travis-sample-3000
     testSecure2: travis-sample-3001
