@@ -7,8 +7,8 @@ deploy:
   provider: heroku
   api_key: 68b21f42-1990-4f0a-bfa0-8584265c9a56
   app:
-    master: secure-brushlands-51899
-    testSecure: desolate-plains-81934
+    master: my-app-staging-duyet-123
+    testSecure: my-app-production-duyet-123
   on:
     repo: duet-ngyen/sampleAppTravis
     all_branches: true
