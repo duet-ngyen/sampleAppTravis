@@ -6,7 +6,7 @@ install:
 deploy:
   provider: heroku
   api_key: 68b21f42-1990-4f0a-bfa0-8584265c9a56
-  app: secure-brushlands-51899
+  app: travis-sample-3000
   on:
     repo: duet-ngyen/sampleAppTravis
     branch: autoDeployHeroku
