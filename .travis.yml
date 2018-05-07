@@ -3,19 +3,26 @@ services:
 - mysql
 install:
 - bundle install
-deploy:
-  provider: heroku
-  api_key: 68b21f42-1990-4f0a-bfa0-8584265c9a56
-  run:
-    - "rake db:create"
-    - "rake db:migrate"
-  app:
-    master: travis-sample-3000
-    testSecure2: travis-sample-3001
-  on:
-    repo: duet-ngyen/sampleAppTravis
-    all_branches: true
 before_script:
 - bundle exec rake db:create
 - bundle exec rake db:migrate
 script: bundle exec rspec spec/models
+deploy:
+  provider: heroku
+  api_key: 68b21f42-1990-4f0a-bfa0-8584265c9a56
+  run:
+  - rake db:create
+  - rake db:migrate
+  app:
+    master: travis-sample-3000
+    slack_notification: travis-sample-3001
+  on:
+    repo: duet-ngyen/sampleAppTravis
+    all_branches: true
+notifications:
+  slack:
+    rooms:
+      - rubyviet:OWQyOZlpw1Rff2q9vT7dfq6e#announcements
+    template:
+      - "Duyet test Build <%{1+1}|#%{build_number}> (<%{compare_url}|%{commit}>) of %{repository_slug}@%{branch} by %{author} %{result} in %{duration}"
+
